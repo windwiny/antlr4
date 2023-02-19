@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const nodeConfig = {
-    mode: "production",
+    mode: "development",
     entry: './src/antlr4/index.node.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -21,21 +21,21 @@ const nodeConfig = {
     },
     target: "node",
         module: {
-        rules: [{
+        rules: [/*{
             test: /\.js$/,
             exclude: /node_modules/,
             use: [ 'babel-loader' ]
-        }]
+        }*/]
     },
     plugins: [ new ESLintPlugin() ],
         experiments: {
             outputModule: true
     },
-    devtool: "source-map"
+    devtool: false
 };
 
 const webConfig = {
-    mode: "production",
+    mode: "development",
     entry: './src/antlr4/index.web.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -52,11 +52,11 @@ const webConfig = {
     },
     target: "web",
     module: {
-        rules: [{
+        rules: [/*{
             test: /\.js$/,
             exclude: [ /node_modules/, path.resolve(__dirname, "src/FileStream.js") ],
             use: [ 'babel-loader' ]
-        }]
+        }*/]
     },
     performance: {
         maxAssetSize: 512000,
@@ -66,7 +66,7 @@ const webConfig = {
     experiments: {
         outputModule: true
     },
-    devtool: "source-map"
+    devtool: false
 };
 
 export default [ nodeConfig, webConfig ];
