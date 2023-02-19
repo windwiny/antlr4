@@ -21,11 +21,11 @@ const nodeConfig = {
     },
     target: "node",
         module: {
-        rules: [/*{
+        rules: [{
             test: /\.js$/,
             exclude: /node_modules/,
             use: [ 'babel-loader' ]
-        }*/]
+        }]
     },
     plugins: [ new ESLintPlugin() ],
         experiments: {
@@ -52,11 +52,11 @@ const webConfig = {
     },
     target: "web",
     module: {
-        rules: [/*{
+        rules: [{
             test: /\.js$/,
             exclude: [ /node_modules/, path.resolve(__dirname, "src/FileStream.js") ],
             use: [ 'babel-loader' ]
-        }*/]
+        }]
     },
     performance: {
         maxAssetSize: 512000,
